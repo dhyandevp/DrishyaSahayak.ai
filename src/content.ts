@@ -99,8 +99,6 @@ export const LINKS = {
   website: 'https://dhyandev.sbs',
   creatorGithub: 'https://github.com/dhyandevp',
   email: 'dhyandevp@proton.me',
-  phone: '+91 8281374024',
-  phoneHref: 'tel:+918281374024',
   address: 'Drishya Sahayak Labs, Kannur, Kerala, India',
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Kannur%2C+Kerala%2C+India',
 } as const;

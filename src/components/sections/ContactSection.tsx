@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ExternalLink, Globe, Mail, MapPin, Phone } from 'lucide-react';
+import { ExternalLink, Globe, Mail, MapPin } from 'lucide-react';
 import { LINKS } from '@/content';
 import { Reveal } from '@/components/ui/MotionPrimitives';
 
@@ -74,7 +74,7 @@ export function ContactSection() {
                 </div>
               </div>
 
-              <dl className="mt-8 grid grid-cols-1 gap-4 border-t border-[var(--border-subtle)] pt-6 sm:grid-cols-2 lg:grid-cols-4">
+              <dl className="mt-8 grid grid-cols-1 gap-4 border-t border-[var(--border-subtle)] pt-6 sm:grid-cols-3">
                 <div className="rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-card-inner)] p-4">
                   <div className="flex items-center gap-2">
                     <Mail className="h-4 w-4 text-[var(--fg-primary)]" aria-hidden="true" />
@@ -108,20 +108,6 @@ export function ContactSection() {
                     >
                       <span>dhyandev.sbs</span>
                       <ExternalLink className="h-3 w-3" aria-hidden="true" />
-                    </a>
-                  </dd>
-                </div>
-
-                <div className="rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-card-inner)] p-4">
-                  <div className="flex items-center gap-2">
-                    <Phone className="h-4 w-4 text-[var(--fg-primary)]" aria-hidden="true" />
-                    <dt className="text-xs font-bold tracking-wider text-[var(--fg-muted)] uppercase">
-                      Phone
-                    </dt>
-                  </div>
-                  <dd className="tabular mt-2 text-sm font-semibold text-[var(--fg-primary)]">
-                    <a href={LINKS.phoneHref} className="underline-offset-4 hover:underline">
-                      {LINKS.phone}
                     </a>
                   </dd>
                 </div>
