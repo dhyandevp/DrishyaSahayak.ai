@@ -99,7 +99,7 @@ export const LINKS = {
   website: 'https://dhyandev.sbs',
   creatorGithub: 'https://github.com/dhyandevp',
   email: 'dhyandevp@proton.me',
-  address: 'Drishya Sahayak Labs, Kannur, Kerala, India',
+  address: 'Drishya Sahayak, India',
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Kannur%2C+Kerala%2C+India',
 } as const;
 
@@ -500,7 +500,7 @@ export const MISSION_QUOTE = {
     { name: 'Sreehid', role: 'Collaborator' },
     { name: 'Ashirwad', role: 'Collaborator' },
   ],
-  organization: 'Drishya Sahayak Labs, Kannur',
+  organization: 'Drishya Sahayak',
 } as const;
 
 export const ROADMAP = {
@@ -702,8 +702,7 @@ export const FOOTER_COLUMNS = [
     title: 'COMPANY',
     links: [
       { label: 'Creator Mission', href: '/#mission' },
-      { label: 'Drishya Sahayak Labs', href: '/#contact' },
-      { label: 'Kannur, Kerala (Maps)', href: LINKS.mapsUrl, external: true },
+      { label: 'Drishya Sahayak', href: '/#contact' },
     ],
   },
   {

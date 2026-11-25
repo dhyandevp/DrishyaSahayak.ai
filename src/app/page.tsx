@@ -94,7 +94,7 @@ export default function HomePage() {
         {/* Section 15: FAQ accordion */}
         <FaqSection />
 
-        {/* Section 16: Contact form + Kannur details + Maps */}
+        {/* Section 16: Contact details */}
         <ContactSection />
 
         {/* Section 17: Large rounded CTA band */}

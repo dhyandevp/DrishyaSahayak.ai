@@ -82,7 +82,7 @@ export default function TermsPage() {
               4. Contact
             </h2>
             <p className="mt-3 text-base leading-relaxed text-[var(--fg-secondary)]">
-              Drishya Sahayak Labs · Kannur, Kerala, India ·{' '}
+              Drishya Sahayak ·{' '}
               <a
                 href={`mailto:${LINKS.email}`}
                 className="font-semibold text-[var(--fg-primary)] underline underline-offset-4"

@@ -45,7 +45,7 @@ export default function PrivacyPage() {
             3. No central Drishya Sahayak telemetry servers
           </h2>
           <p className="mt-3 text-base leading-relaxed text-[var(--fg-secondary)]">
-            The desktop Python application does not include hidden analytics trackers, user accounts, or telemetry uploads to Drishya Sahayak Labs. You run the open-source MIT code directly from your own directory.
+            The desktop Python application does not include hidden analytics trackers, user accounts, or telemetry uploads to Drishya Sahayak. You run the open-source MIT code directly from your own directory.
           </p>
         </section>
 
@@ -57,7 +57,7 @@ export default function PrivacyPage() {
             This marketing website stores your selected theme (light or dark), high-contrast mode, and text-scale choice locally in your browser&apos;s <code className="font-mono-code text-sm">localStorage</code> solely to preserve accessibility settings across visits. No advertising or cross-site tracking cookies are used.
           </p>
           <p className="mt-3 text-base leading-relaxed text-[var(--fg-secondary)]">
-            If you contact Drishya Sahayak Labs via direct email, your name and email address are used strictly to respond to your inquiry.
+            If you contact Drishya Sahayak via direct email, your name and email address are used strictly to respond to your inquiry.
           </p>
         </section>
 
