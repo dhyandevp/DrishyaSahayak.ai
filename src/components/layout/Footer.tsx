@@ -20,13 +20,7 @@ export function Footer() {
       external: true,
     },
     {
-      label: 'Creator links (link.dhyandev.sbs)',
-      href: LINKS.linktree,
-      icon: Globe,
-      external: true,
-    },
-    {
-      label: 'Developer website (dhyandev.sbs)',
+      label: 'Developer website (links.dhyandev.sbs)',
       href: LINKS.website,
       icon: Globe,
       external: true,
