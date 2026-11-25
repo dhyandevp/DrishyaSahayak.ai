@@ -73,7 +73,7 @@ export default function TermsPage() {
               3. Hardware Roadmap & Waitlist Disclaimer
             </h2>
             <p className="mt-3 text-base leading-relaxed text-[var(--fg-secondary)]">
-              References to the Raspberry Pi 5 wearable smart-glasses edition describe an early research concept only. Joining the waitlist does not constitute a purchase, reservation contract, or shipping guarantee, and any projected build cost (such as ₹20,667 est.) is an early hardware estimate only.
+              References to the Raspberry Pi 5 wearable smart-glasses edition describe an early research concept only. Any projected build cost (such as ₹20,667 est.) is an early hardware estimate only and does not constitute a purchase, reservation contract, or shipping guarantee.
             </p>
           </section>
 

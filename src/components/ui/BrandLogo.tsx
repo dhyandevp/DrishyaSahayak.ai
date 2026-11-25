@@ -45,7 +45,7 @@ export function BrandLogo({
         />
       </svg>
       <span
-        className={`font-serif-display whitespace-nowrap font-semibold tracking-tight ${
+        className={`font-serif-display translate-y-[0.05em] whitespace-nowrap leading-none font-semibold tracking-tight ${
           size === 'sm' ? 'text-base sm:text-lg' : 'text-xl'
         } ${inverted ? 'text-white' : 'text-[var(--fg-primary)]'}`}
       >

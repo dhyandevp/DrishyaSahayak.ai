@@ -57,7 +57,7 @@ export default function PrivacyPage() {
             This marketing website stores your selected theme (light or dark), high-contrast mode, and text-scale choice locally in your browser&apos;s <code className="font-mono-code text-sm">localStorage</code> solely to preserve accessibility settings across visits. No advertising or cross-site tracking cookies are used.
           </p>
           <p className="mt-3 text-base leading-relaxed text-[var(--fg-secondary)]">
-            If you submit the Contact form or join the Glasses Edition waitlist, the name, email, subject, and message you type are used strictly to respond to your inquiry or notify you about roadmap milestones.
+            If you contact Drishya Sahayak Labs via direct email, your name and email address are used strictly to respond to your inquiry.
           </p>
         </section>
 
@@ -66,7 +66,7 @@ export default function PrivacyPage() {
             5. Contact for privacy inquiries
           </h2>
           <p className="mt-3 text-base leading-relaxed text-[var(--fg-secondary)]">
-            Questions or requests regarding submitted contact/waitlist entries may be sent to{' '}
+            Questions or requests regarding privacy may be sent to{' '}
             <a
               href={`mailto:${LINKS.email}`}
               className="font-semibold text-[var(--fg-primary)] underline underline-offset-4"

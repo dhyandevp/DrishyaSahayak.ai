@@ -29,7 +29,7 @@ export function FloatingNavbar() {
         <Link
           href="/"
           aria-label="Drishya Sahayak Home"
-          className="rounded-full py-1 pr-2 transition-opacity hover:opacity-85"
+          className="inline-flex items-center rounded-full py-1 pr-2 transition-opacity hover:opacity-85"
         >
           <BrandLogo size="sm" />
         </Link>

@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { CloudSun, Eye, FileText, MessageSquare, Mic } from 'lucide-react';
 import { STATEMENT } from '@/content';
 import { Reveal } from '@/components/ui/MotionPrimitives';
@@ -12,6 +15,8 @@ const CAPABILITY_ICONS = {
 } as const;
 
 export function StatementSection() {
+  const shouldReduceMotion = Boolean(useReducedMotion());
+
   return (
     <section
       id="product"
@@ -25,24 +30,35 @@ export function StatementSection() {
         >
           {STATEMENT.headline}
         </h2>
-
-        <ul
-          aria-label="Core daily capabilities"
-          className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4"
-        >
-          {STATEMENT.capabilities.map((cap) => {
-            const Icon = CAPABILITY_ICONS[cap.id];
-            return (
-              <li key={cap.id}>
-                <span className="inline-flex min-h-[44px] items-center gap-2.5 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-5 py-2.5 text-sm font-medium text-[var(--fg-primary)] shadow-sm">
-                  <Icon className="h-4 w-4 text-[var(--fg-secondary)]" aria-hidden="true" />
-                  <span>{cap.label}</span>
-                </span>
-              </li>
-            );
-          })}
-        </ul>
       </Reveal>
+
+      <ul
+        aria-label="Core daily capabilities"
+        className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4"
+      >
+        {STATEMENT.capabilities.map((cap, idx) => {
+          const Icon = CAPABILITY_ICONS[cap.id];
+          return (
+            <motion.li
+              key={cap.id}
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 14, scale: 0.92 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                duration: 0.42,
+                delay: shouldReduceMotion ? 0 : idx * 0.06,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              whileHover={shouldReduceMotion ? undefined : { y: -2 }}
+            >
+              <span className="inline-flex min-h-[44px] items-center gap-2.5 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-5 py-2.5 text-sm font-medium text-[var(--fg-primary)] shadow-sm">
+                <Icon className="h-4 w-4 text-[var(--fg-secondary)]" aria-hidden="true" />
+                <span>{cap.label}</span>
+              </span>
+            </motion.li>
+          );
+        })}
+      </ul>
     </section>
   );
 }

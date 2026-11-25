@@ -510,7 +510,7 @@ export const ROADMAP = {
   headline: 'Hands-free wearable smart-glasses edition',
   description:
     'The next phase explores moving Drishya Sahayak off the desk into a lightweight wearable form factor built around a Raspberry Pi 5, open-ear bone-conduction audio so ambient street sounds remain audible, and subtle haptic feedback.',
-  estimateNote: 'Waitlist: ₹20,667 est. (target component estimate only — hardware is in development and not available for purchase).',
+  estimateNote: '₹20,667 est. (target component estimate only — hardware is in development and not available for purchase).',
   hardwareSpecs: [
     { label: 'Compute', value: 'Raspberry Pi 5' },
     { label: 'Audio', value: 'Bone-conduction speakers (ears stay open)' },
@@ -617,7 +617,7 @@ export const PRICING = {
     badge: 'CONCEPT · NOT SHIPPED',
     name: 'Glasses Edition',
     description: 'Upcoming wearable edition exploring Raspberry Pi 5, bone-conduction audio, and haptic cues.',
-    price: 'Waitlist',
+    price: 'Concept',
     period: '₹20,667 est. · Hardware estimate only',
     features: [
       'Raspberry Pi 5 wearable compute concept',
@@ -625,8 +625,8 @@ export const PRICING = {
       'Haptic vibration cues for nearby alerts',
       'Not purchasable — research roadmap only',
     ],
-    ctaLabel: 'Join the waitlist',
-    ctaHref: '#waitlist-form',
+    ctaLabel: 'Explore roadmap',
+    ctaHref: '#roadmap',
   },
 } as const;
 
@@ -719,7 +719,7 @@ export const FOOTER_COLUMNS = [
     links: [
       { label: 'Clone V1 Source', href: '/#quickstart' },
       { label: 'Get Gemini API Key', href: LINKS.geminiApiKey, external: true },
-      { label: 'Join Glasses Waitlist', href: '/#waitlist-form' },
+      { label: 'Glasses Concept Roadmap', href: '/#roadmap' },
     ],
   },
 ] as const;

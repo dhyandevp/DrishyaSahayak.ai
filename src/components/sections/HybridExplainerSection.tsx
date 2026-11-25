@@ -1,9 +1,28 @@
-import React from 'react';
+'use client';
+
+import React, { useRef } from 'react';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { Check, Cloud, ShieldCheck, Zap } from 'lucide-react';
 import { HYBRID_EXPLAINER } from '@/content';
 import { Reveal } from '@/components/ui/MotionPrimitives';
 
 export function HybridExplainerSection() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const shouldReduceMotion = Boolean(useReducedMotion());
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start 88%', 'center 52%'],
+  });
+
+  const leftX = useTransform(scrollYProgress, [0, 1], [-24, 0]);
+  const leftRotate = useTransform(scrollYProgress, [0, 1], [-1.5, 0]);
+  const rightX = useTransform(scrollYProgress, [0, 1], [24, 0]);
+  const rightRotate = useTransform(scrollYProgress, [0, 1], [1.5, 0]);
+  const cardOpacity = useTransform(scrollYProgress, [0, 0.65], [0.45, 1]);
+  const bannerY = useTransform(scrollYProgress, [0.3, 1], [18, 0]);
+  const bannerOpacity = useTransform(scrollYProgress, [0.3, 1], [0.3, 1]);
+
   return (
     <section
       id="hybrid"
@@ -22,10 +41,24 @@ export function HybridExplainerSection() {
             {HYBRID_EXPLAINER.headline}
           </h2>
         </div>
+      </Reveal>
 
+      <div ref={containerRef}>
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
           {/* Offline Column */}
-          <div className="paper-grain rounded-[28px] border-[length:var(--card-border-width)] border-[var(--border-subtle)] bg-[var(--pastel-mint)] p-7 shadow-[var(--shadow-card)] sm:p-9">
+          <motion.div
+            style={
+              shouldReduceMotion
+                ? undefined
+                : {
+                    x: leftX,
+                    rotate: leftRotate,
+                    opacity: cardOpacity,
+                    willChange: 'transform, opacity',
+                  }
+            }
+            className="paper-grain rounded-[28px] border-[length:var(--card-border-width)] border-[var(--border-subtle)] bg-[var(--pastel-mint)] p-7 shadow-[var(--shadow-card)] sm:p-9"
+          >
             <span className="inline-flex items-center gap-2 rounded-full border border-[var(--border-subtle)] bg-[var(--surface-card-inner)] px-3.5 py-1 text-xs font-bold text-[var(--fg-primary)]">
               <Zap className="h-3.5 w-3.5" aria-hidden="true" />
               <span>{HYBRID_EXPLAINER.offline.badge}</span>
@@ -47,10 +80,22 @@ export function HybridExplainerSection() {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Online Column */}
-          <div className="paper-grain rounded-[28px] border-[length:var(--card-border-width)] border-[var(--border-subtle)] bg-[var(--pastel-periwinkle)] p-7 shadow-[var(--shadow-card)] sm:p-9">
+          <motion.div
+            style={
+              shouldReduceMotion
+                ? undefined
+                : {
+                    x: rightX,
+                    rotate: rightRotate,
+                    opacity: cardOpacity,
+                    willChange: 'transform, opacity',
+                  }
+            }
+            className="paper-grain rounded-[28px] border-[length:var(--card-border-width)] border-[var(--border-subtle)] bg-[var(--pastel-periwinkle)] p-7 shadow-[var(--shadow-card)] sm:p-9"
+          >
             <span className="inline-flex items-center gap-2 rounded-full border border-[var(--border-subtle)] bg-[var(--surface-card-inner)] px-3.5 py-1 text-xs font-bold text-[var(--fg-primary)]">
               <Cloud className="h-3.5 w-3.5" aria-hidden="true" />
               <span>{HYBRID_EXPLAINER.online.badge}</span>
@@ -72,11 +117,22 @@ export function HybridExplainerSection() {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
         </div>
 
         {/* Honest Privacy Banner */}
-        <div className="mt-6 flex items-start gap-3.5 rounded-[22px] border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-5 sm:px-7 sm:py-5">
+        <motion.div
+          style={
+            shouldReduceMotion
+              ? undefined
+              : {
+                  y: bannerY,
+                  opacity: bannerOpacity,
+                  willChange: 'transform, opacity',
+                }
+          }
+          className="mt-6 flex items-start gap-3.5 rounded-[22px] border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-5 sm:px-7 sm:py-5"
+        >
           <ShieldCheck
             className="mt-0.5 h-5 w-5 shrink-0 text-[var(--fg-primary)]"
             aria-hidden="true"
@@ -85,8 +141,8 @@ export function HybridExplainerSection() {
             <strong className="font-semibold text-[var(--fg-primary)]">Transparent data flow: </strong>
             {HYBRID_EXPLAINER.privacyNote}
           </p>
-        </div>
-      </Reveal>
+        </motion.div>
+      </div>
     </section>
   );
 }

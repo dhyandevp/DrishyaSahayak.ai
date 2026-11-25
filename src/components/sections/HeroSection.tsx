@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Link from 'next/link';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { Download, Play } from 'lucide-react';
 import { HERO } from '@/content';
 import { DitheredCloud } from '@/components/ui/DitheredCloud';
@@ -11,28 +12,64 @@ import { WatchFilmModal } from './WatchFilmModal';
 
 export function HeroSection() {
   const [filmOpen, setFilmOpen] = useState(false);
+  const heroRef = useRef<HTMLElement>(null);
+  const shouldReduceMotion = Boolean(useReducedMotion());
+
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+
+  const leftCloudX = useTransform(scrollYProgress, [0, 1], [0, -48]);
+  const leftCloudY = useTransform(scrollYProgress, [0, 1], [0, 32]);
+  const rightCloudX = useTransform(scrollYProgress, [0, 1], [0, 48]);
+  const rightCloudY = useTransform(scrollYProgress, [0, 1], [0, 40]);
+  const watermarkY = useTransform(scrollYProgress, [0, 1], [0, 64]);
+  const watermarkOpacity = useTransform(scrollYProgress, [0, 0.75], [0.25, 0.04]);
+  const mockupY = useTransform(scrollYProgress, [0, 1], [0, -24]);
 
   return (
     <section
+      ref={heroRef}
       aria-labelledby="hero-heading"
       className="mx-auto w-full max-w-[1380px] px-3 pt-2 pb-10 sm:px-6 sm:pb-16"
     >
       <div className="hero-sky-gradient paper-grain relative overflow-hidden rounded-[28px] border border-[var(--border-subtle)] px-4 pt-10 pb-10 shadow-[var(--shadow-card)] sm:rounded-[36px] sm:px-10 sm:pt-14 sm:pb-14 lg:px-16 lg:pt-16">
-        {/* Decorative Dithered Clouds */}
-        <DitheredCloud
-          direction="left"
-          intensity="medium"
-          className="absolute top-12 -left-16 w-64 sm:-left-10 sm:w-80 lg:w-96"
-        />
-        <DitheredCloud
-          direction="right"
-          intensity="medium"
-          className="absolute top-20 -right-16 w-64 sm:-right-8 sm:w-80 lg:w-96"
-        />
+        {/* Decorative Dithered Clouds with scroll parallax */}
+        <motion.div
+          style={
+            shouldReduceMotion
+              ? undefined
+              : { x: leftCloudX, y: leftCloudY, willChange: 'transform' }
+          }
+          className="pointer-events-none absolute top-12 -left-16 w-64 sm:-left-10 sm:w-80 lg:w-96"
+        >
+          <DitheredCloud direction="left" intensity="medium" className="w-full" />
+        </motion.div>
 
-        {/* Faint Outline Display Watermark behind Headline (Craft signature) */}
-        <div
+        <motion.div
+          style={
+            shouldReduceMotion
+              ? undefined
+              : { x: rightCloudX, y: rightCloudY, willChange: 'transform' }
+          }
+          className="pointer-events-none absolute top-20 -right-16 w-64 sm:-right-8 sm:w-80 lg:w-96"
+        >
+          <DitheredCloud direction="right" intensity="medium" className="w-full" />
+        </motion.div>
+
+        {/* Faint Outline Display Watermark behind Headline */}
+        <motion.div
           aria-hidden="true"
+          style={
+            shouldReduceMotion
+              ? undefined
+              : {
+                  y: watermarkY,
+                  opacity: watermarkOpacity,
+                  willChange: 'transform, opacity',
+                }
+          }
           className="pointer-events-none absolute inset-x-0 top-32 flex justify-center overflow-hidden opacity-25 select-none [[data-contrast='high']_&]:hidden"
         >
           <svg
@@ -55,23 +92,36 @@ export function HeroSection() {
               DRISHYA
             </text>
           </svg>
-        </div>
+        </motion.div>
 
         {/* Center Hero Typography & Pill CTAs */}
         <div className="relative z-10 mx-auto max-w-3xl text-center">
-          <h1
+          <motion.h1
             id="hero-heading"
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className="font-serif-display text-[2.65rem] leading-[1.06] font-medium tracking-[-0.03em] text-[var(--fg-primary)] sm:text-[4rem] lg:text-[4.85rem]"
           >
             {HERO.headlinePrimary}{' '}
             <span className="italic font-normal">{HERO.headlineItalic}</span>
-          </h1>
+          </motion.h1>
 
-          <p className="mx-auto mt-5 max-w-[60ch] text-base leading-relaxed font-normal text-[var(--fg-secondary)] sm:text-lg">
+          <motion.p
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+            className="mx-auto mt-5 max-w-[60ch] text-base leading-relaxed font-normal text-[var(--fg-secondary)] sm:text-lg"
+          >
             {HERO.subline}
-          </p>
+          </motion.p>
 
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-3.5">
+          <motion.div
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-7 flex flex-wrap items-center justify-center gap-3.5"
+          >
             <Link
               id="hero-download-cta"
               href="#quickstart"
@@ -89,16 +139,24 @@ export function HeroSection() {
               <Play className="h-4 w-4 fill-current" aria-hidden="true" />
               <span>{HERO.secondaryCta}</span>
             </button>
-          </div>
+          </motion.div>
         </div>
 
         {/* Torn Paper Collage Framing Lower Edge */}
         <TornPaperCollage />
 
         {/* Desktop Tkinter App Mockup Overlapping Lower Hero */}
-        <div className="relative z-10 mt-10 sm:mt-14">
+        <motion.div
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 24, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.65, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
+          style={
+            shouldReduceMotion ? undefined : { y: mockupY, willChange: 'transform' }
+          }
+          className="relative z-10 mt-10 sm:mt-14"
+        >
           <AppWindowMockup />
-        </div>
+        </motion.div>
       </div>
 
       <WatchFilmModal open={filmOpen} onClose={() => setFilmOpen(false)} />

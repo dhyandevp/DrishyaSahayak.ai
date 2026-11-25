@@ -82,7 +82,7 @@ export default function HomePage() {
         {/* Section 11: Creator mission statement pull-quote */}
         <MissionQuoteSection />
 
-        {/* Section 12: Coming next smart-glasses concept + timeline + waitlist */}
+        {/* Section 12: Coming next smart-glasses concept + timeline */}
         <RoadmapSection />
 
         {/* Section 13: 4 Community tiles */}

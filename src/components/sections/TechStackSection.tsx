@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Code2, Eye, LayoutTemplate, Mic, Sparkles, Volume2 } from 'lucide-react';
 import { TECH_STACK } from '@/content';
 import { Reveal } from '@/components/ui/MotionPrimitives';
@@ -13,6 +16,8 @@ const STACK_ICONS = [
 ] as const;
 
 export function TechStackSection() {
+  const shouldReduceMotion = Boolean(useReducedMotion());
+
   return (
     <section
       id="architecture"
@@ -34,40 +39,53 @@ export function TechStackSection() {
             Simple enough to inspect and hack on in Python 3.10+, modular enough to extend across new sensors and speech engines.
           </p>
         </div>
-
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {TECH_STACK.map((item, idx) => {
-            const Icon = STACK_ICONS[idx];
-            return (
-              <div
-                key={item.name}
-                className="flex flex-col justify-between rounded-[24px] border-[length:var(--card-border-width)] border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 shadow-sm transition-transform hover:-translate-y-0.5"
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-3">
-                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-muted)] text-[var(--fg-primary)]">
-                      <Icon className="h-5 w-5" aria-hidden="true" />
-                    </span>
-                    <span className="rounded-full border border-[var(--border-subtle)] bg-[var(--bg-muted)] px-3 py-1 text-[11px] font-semibold text-[var(--fg-primary)]">
-                      {item.execution}
-                    </span>
-                  </div>
-
-                  <p className="mt-5 text-xs font-bold tracking-wider text-[var(--fg-muted)] uppercase">
-                    {item.category}
-                  </p>
-                  <h3 className="font-serif-display mt-1 text-2xl font-medium text-[var(--fg-primary)]">
-                    {item.name}
-                  </h3>
-                  <p className="mt-2.5 text-sm leading-relaxed text-[var(--fg-secondary)]">
-                    {item.role}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
       </Reveal>
+
+      <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {TECH_STACK.map((item, idx) => {
+          const Icon = STACK_ICONS[idx];
+          return (
+            <motion.div
+              key={item.name}
+              initial={
+                shouldReduceMotion
+                  ? false
+                  : { opacity: 0, y: 20, scale: 0.96 }
+              }
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{
+                duration: 0.45,
+                delay: shouldReduceMotion ? 0 : idx * 0.06,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              whileHover={shouldReduceMotion ? undefined : { y: -3 }}
+              className="flex flex-col justify-between rounded-[24px] border-[length:var(--card-border-width)] border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 shadow-sm"
+            >
+              <div>
+                <div className="flex items-center justify-between gap-3">
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-muted)] text-[var(--fg-primary)]">
+                    <Icon className="h-5 w-5" aria-hidden="true" />
+                  </span>
+                  <span className="rounded-full border border-[var(--border-subtle)] bg-[var(--bg-muted)] px-3 py-1 text-[11px] font-semibold text-[var(--fg-primary)]">
+                    {item.execution}
+                  </span>
+                </div>
+
+                <p className="mt-5 text-xs font-bold tracking-wider text-[var(--fg-muted)] uppercase">
+                  {item.category}
+                </p>
+                <h3 className="font-serif-display mt-1 text-2xl font-medium text-[var(--fg-primary)]">
+                  {item.name}
+                </h3>
+                <p className="mt-2.5 text-sm leading-relaxed text-[var(--fg-secondary)]">
+                  {item.role}
+                </p>
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
     </section>
   );
 }
