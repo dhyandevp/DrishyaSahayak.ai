@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     'open source Python accessibility',
     'voice visual aid',
   ],
-  authors: [{ name: 'Dhyandev P', url: LINKS.linktree }],
+  authors: [{ name: 'Dhyandev P', url: LINKS.website }],
   creator: 'Dhyandev P',
   openGraph: {
     type: 'website',
@@ -92,7 +92,7 @@ export default function RootLayout({
     author: {
       '@type': 'Person',
       name: 'Dhyandev P',
-      url: LINKS.linktree,
+      url: LINKS.website,
     },
     contributor: [
       {

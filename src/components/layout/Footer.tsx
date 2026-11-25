@@ -20,13 +20,19 @@ export function Footer() {
       external: true,
     },
     {
-      label: 'Creator links on Linktree',
+      label: 'Creator links (link.dhyandev.sbs)',
       href: LINKS.linktree,
       icon: Globe,
       external: true,
     },
     {
-      label: 'Email Drishya Sahayak',
+      label: 'Developer website (dhyandev.sbs)',
+      href: LINKS.website,
+      icon: Globe,
+      external: true,
+    },
+    {
+      label: 'Email developer',
       href: `mailto:${LINKS.email}`,
       icon: Mail,
       external: false,

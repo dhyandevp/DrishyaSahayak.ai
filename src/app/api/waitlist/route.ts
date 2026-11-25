@@ -29,7 +29,7 @@ export async function POST(request: Request) {
 
     const resendApiKey = process.env.RESEND_API_KEY;
     const resendFrom = process.env.RESEND_FROM_EMAIL || 'Drishya Sahayak <onboarding@resend.dev>';
-    const contactTo = process.env.CONTACT_TO_EMAIL || 'drishyasahayak@gmail.com';
+    const contactTo = process.env.CONTACT_TO_EMAIL || 'dhyandevp@proton.me';
     const formspreeUrl = process.env.FORMSPREE_WAITLIST_ENDPOINT || process.env.FORMSPREE_CONTACT_ENDPOINT;
 
     if (resendApiKey) {

@@ -31,7 +31,7 @@ export async function POST(request: Request) {
 
     const resendApiKey = process.env.RESEND_API_KEY;
     const resendFrom = process.env.RESEND_FROM_EMAIL || 'Drishya Sahayak <onboarding@resend.dev>';
-    const contactTo = process.env.CONTACT_TO_EMAIL || 'drishyasahayak@gmail.com';
+    const contactTo = process.env.CONTACT_TO_EMAIL || 'dhyandevp@proton.me';
     const formspreeUrl = process.env.FORMSPREE_CONTACT_ENDPOINT;
 
     if (resendApiKey) {
@@ -52,7 +52,7 @@ export async function POST(request: Request) {
 
       if (!resendRes.ok) {
         return NextResponse.json(
-          { ok: false, error: 'Failed to send email via Resend. Please write directly to drishyasahayak@gmail.com.' },
+          { ok: false, error: 'Failed to send email via Resend. Please write directly to dhyandevp@proton.me.' },
           { status: 502 }
         );
       }

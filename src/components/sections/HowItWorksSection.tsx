@@ -70,20 +70,20 @@ function PipelineCard({
 }: PipelineCardProps) {
   const Icon = STEP_ICONS[index];
 
-  // Cards fan out from exact container center [0.06 -> 0.62]
-  const cardX = useTransform(progress, [0.06, 0.62], [startOffset.x, 0]);
-  const cardY = useTransform(progress, [0.06, 0.62], [startOffset.y, 0]);
+  // Cards fan out from exact container center [0.04 -> 0.48]
+  const cardX = useTransform(progress, [0.04, 0.48], [startOffset.x, 0]);
+  const cardY = useTransform(progress, [0.04, 0.48], [startOffset.y, 0]);
   const cardScale = useTransform(
     progress,
-    [0.06, 0.62],
+    [0.04, 0.48],
     [PIPELINE_CONFIG.startScale, 1]
   );
   const startRotate = isMobile ? 0 : PIPELINE_CONFIG.fanRotationsDeg[index];
-  const cardRotate = useTransform(progress, [0.06, 0.62], [startRotate, 0]);
+  const cardRotate = useTransform(progress, [0.04, 0.48], [startRotate, 0]);
 
-  // Content stagger once each card is ~70% of the way out (Step 01 stays visible on top)
+  // Content staggers in as cards fan out so all 4 cards are 100% visible well before unpinning
   const isTopCard = index === 0;
-  const contentBase = 0.44 + index * 0.03;
+  const contentBase = 0.24 + index * 0.04;
 
   const pillOpacity = useTransform(
     progress,
@@ -119,9 +119,9 @@ function PipelineCard({
   );
 
   // Gap arrow button: scales in left-to-right after cards land, then pulses once
-  const arrowInStart = 0.64 + index * 0.07;
-  const arrowInEnd = arrowInStart + 0.1;
-  const pulseStart = 0.86 + index * 0.03;
+  const arrowInStart = 0.5 + index * 0.06;
+  const arrowInEnd = arrowInStart + 0.09;
+  const pulseStart = 0.72 + index * 0.03;
   const arrowScale = useTransform(
     progress,
     [arrowInStart, arrowInEnd, pulseStart, pulseStart + 0.04, pulseStart + 0.08],
@@ -300,7 +300,7 @@ export function HowItWorksSection() {
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ['start start', 'end end'],
+    offset: ['start start', 'end 70%'],
   });
 
   const fallbackProgress = useMotionValue(1);
@@ -309,11 +309,11 @@ export function HowItWorksSection() {
     : scrollYProgress;
 
   // Intro text fades up slightly before the cards start moving
-  const introOpacity = useTransform(effectiveProgress, [0, 0.14], [0.72, 1]);
-  const introY = useTransform(effectiveProgress, [0, 0.14], [12, 0]);
+  const introOpacity = useTransform(effectiveProgress, [0, 0.12], [0.72, 1]);
+  const introY = useTransform(effectiveProgress, [0, 0.12], [12, 0]);
 
   // Thin connecting line draws behind cards left-to-right
-  const lineScaleX = useTransform(effectiveProgress, [0.55, 0.85], [0, 1]);
+  const lineScaleX = useTransform(effectiveProgress, [0.42, 0.64], [0, 1]);
 
   const scrollHeightVh = isMobile
     ? PIPELINE_CONFIG.scrollLengthMobileVh

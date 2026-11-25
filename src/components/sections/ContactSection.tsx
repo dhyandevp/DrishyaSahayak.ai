@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ExternalLink, Mail, MapPin, Phone } from 'lucide-react';
+import { ExternalLink, Globe, Mail, MapPin, Phone } from 'lucide-react';
 import { LINKS } from '@/content';
 import { Reveal } from '@/components/ui/MotionPrimitives';
 
@@ -47,7 +47,18 @@ export function ContactSection() {
                     className="inline-flex min-h-[42px] items-center gap-2 rounded-full bg-[var(--cta-primary-bg)] px-5 py-2 text-xs font-semibold text-[var(--cta-primary-fg)] shadow-sm transition-transform hover:-translate-y-0.5 sm:text-sm"
                   >
                     <Mail className="h-4 w-4" aria-hidden="true" />
-                    <span>Email us</span>
+                    <span>Email developer</span>
+                  </a>
+                  <a
+                    href={LINKS.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Visit developer website dhyandev.sbs (opens in a new tab)"
+                    className="inline-flex min-h-[42px] items-center gap-2 rounded-full border border-[var(--border-strong)] bg-[var(--surface-card-inner)] px-4 py-2 text-xs font-semibold text-[var(--fg-primary)] shadow-sm transition-transform hover:-translate-y-0.5 sm:text-sm"
+                  >
+                    <Globe className="h-4 w-4" aria-hidden="true" />
+                    <span>Website</span>
+                    <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
                   </a>
                   <a
                     href={LINKS.mapsUrl}
@@ -63,12 +74,12 @@ export function ContactSection() {
                 </div>
               </div>
 
-              <dl className="mt-8 grid grid-cols-1 gap-4 border-t border-[var(--border-subtle)] pt-6 sm:grid-cols-3">
+              <dl className="mt-8 grid grid-cols-1 gap-4 border-t border-[var(--border-subtle)] pt-6 sm:grid-cols-2 lg:grid-cols-4">
                 <div className="rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-card-inner)] p-4">
                   <div className="flex items-center gap-2">
                     <Mail className="h-4 w-4 text-[var(--fg-primary)]" aria-hidden="true" />
                     <dt className="text-xs font-bold tracking-wider text-[var(--fg-muted)] uppercase">
-                      Email
+                      Developer Email
                     </dt>
                   </div>
                   <dd className="mt-2 text-sm font-semibold text-[var(--fg-primary)]">
@@ -77,6 +88,26 @@ export function ContactSection() {
                       className="break-all underline-offset-4 hover:underline"
                     >
                       {LINKS.email}
+                    </a>
+                  </dd>
+                </div>
+
+                <div className="rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-card-inner)] p-4">
+                  <div className="flex items-center gap-2">
+                    <Globe className="h-4 w-4 text-[var(--fg-primary)]" aria-hidden="true" />
+                    <dt className="text-xs font-bold tracking-wider text-[var(--fg-muted)] uppercase">
+                      Developer Website
+                    </dt>
+                  </div>
+                  <dd className="mt-2 text-sm font-semibold text-[var(--fg-primary)]">
+                    <a
+                      href={LINKS.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 underline-offset-4 hover:underline"
+                    >
+                      <span>dhyandev.sbs</span>
+                      <ExternalLink className="h-3 w-3" aria-hidden="true" />
                     </a>
                   </dd>
                 </div>
