@@ -1,0 +1,32 @@
+{
+  "name": "drishya-sahayak-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Production marketing website and documentation for Drishya Sahayak V1 — an open-source AI desktop visual assistant.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "framer-motion": "^12.16.0",
+    "lenis": "^1.3.28",
+    "lucide-react": "^1.0.0",
+    "next": "^16.1.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "zod": "^3.24.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.0",
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "eslint": "^9.26.0",
+    "eslint-config-next": "^16.1.0",
+    "tailwindcss": "^4.1.0",
+    "typescript": "^5.8.3"
+  }
+}

@@ -1,0 +1,215 @@
+@import "tailwindcss";
+
+:root {
+  --bg-canvas: #fdfaf7;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #ffffff;
+  --bg-muted: #f4efe9;
+  --fg-primary: #111318;
+  --fg-secondary: #2d323c;
+  --fg-muted: #4a5160;
+  --border-subtle: rgba(17, 19, 24, 0.1);
+  --border-strong: rgba(17, 19, 24, 0.22);
+
+  /* Signature Craft-inspired pastels (calibrated for high-contrast AAA dark ink) */
+  --pastel-sky-top: #82c4f5;
+  --pastel-sky-mid: #b2defb;
+  --pastel-sky-bottom: #ddf1fe;
+  --pastel-sky-solid: #cbe8fc;
+  --pastel-periwinkle: #bacdff;
+  --pastel-periwinkle-pill: #d3dfff;
+  --pastel-mint: #a4dfb9;
+  --pastel-mint-pill: #c6edd4;
+  --pastel-peach: #ffd6ba;
+  --pastel-peach-pill: #ffe7d6;
+  --pastel-butter: #fceb9f;
+  --pastel-butter-pill: #fdf3c7;
+
+  --surface-card-inner: #ffffff;
+  --surface-dark: #08080a;
+  --surface-dark-fg: #f8fafc;
+  --surface-dark-muted: #d1d5db;
+
+  --cta-primary-bg: #111318;
+  --cta-primary-fg: #ffffff;
+  --cta-primary-hover: #252932;
+
+  --focus-ring: #0b4f9c;
+  --selection-bg: #b2defb;
+  --selection-fg: #111318;
+  --shadow-card: 0 20px 50px -15px rgba(17, 19, 24, 0.07), 0 4px 14px -4px rgba(17, 19, 24, 0.03);
+  --shadow-pill: 0 8px 24px -6px rgba(17, 19, 24, 0.12), 0 2px 6px rgba(17, 19, 24, 0.04);
+  --card-border-width: 1px;
+}
+
+/* High contrast mode (always white/light high contrast) */
+html[data-contrast="high"] {
+  --bg-canvas: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #ffffff;
+  --bg-muted: #f0f0f0;
+  --fg-primary: #000000;
+  --fg-secondary: #000000;
+  --fg-muted: #111111;
+  --border-subtle: #000000;
+  --border-strong: #000000;
+
+  --pastel-sky-top: #eaf4ff;
+  --pastel-sky-mid: #f2f8ff;
+  --pastel-sky-bottom: #ffffff;
+  --pastel-sky-solid: #e6f2ff;
+  --pastel-periwinkle: #eef2ff;
+  --pastel-periwinkle-pill: #dfe7ff;
+  --pastel-mint: #ebfaf0;
+  --pastel-mint-pill: #d4f5df;
+  --pastel-peach: #fff3eb;
+  --pastel-peach-pill: #ffe4d1;
+  --pastel-butter: #fffbe6;
+  --pastel-butter-pill: #fff5bf;
+
+  --surface-card-inner: #ffffff;
+  --surface-dark: #000000;
+  --surface-dark-fg: #ffffff;
+  --surface-dark-muted: #ffffff;
+
+  --cta-primary-bg: #000000;
+  --cta-primary-fg: #ffffff;
+  --cta-primary-hover: #1a1a1a;
+
+  --focus-ring: #0039a6;
+  --shadow-card: none;
+  --shadow-pill: none;
+  --card-border-width: 2px;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+html[data-text-scale="large"] {
+  font-size: 18px;
+}
+
+html[data-text-scale="xlarge"] {
+  font-size: 20px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--bg-canvas);
+  color: var(--fg-primary);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-serif-display {
+  font-family: var(--font-serif), Georgia, serif;
+}
+
+.font-mono-code {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+::selection {
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Skip to main content accessible link */
+.skip-link {
+  position: fixed;
+  top: -120px;
+  left: 16px;
+  z-index: 100;
+  background-color: var(--cta-primary-bg);
+  color: var(--cta-primary-fg);
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border: 2px solid var(--focus-ring);
+  box-shadow: var(--shadow-pill);
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* Subtle paper/film grain texture on pastel cards */
+.paper-grain {
+  position: relative;
+}
+
+.paper-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+html[data-contrast="high"] .paper-grain::after {
+  display: none;
+}
+
+/* Custom scrollbar aligned to surface palette */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-canvas);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 9999px;
+  border: 2px solid var(--bg-canvas);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--fg-muted);
+}
+
+/* Hero sky gradient */
+.hero-sky-gradient {
+  background: linear-gradient(
+    180deg,
+    var(--pastel-sky-top) 0%,
+    var(--pastel-sky-mid) 52%,
+    var(--pastel-sky-bottom) 100%
+  );
+}
+
+.cta-sky-gradient {
+  background: linear-gradient(
+    180deg,
+    var(--pastel-sky-mid) 0%,
+    var(--pastel-sky-top) 100%
+  );
+}
+
+/* Tabular numbers for telemetry, steps, prices, and timestamps */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}

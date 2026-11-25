@@ -1,62 +1,71 @@
-# 👁️ Drishya Sahayak (Blind Aid)
+# Drishya Sahayak V1 — Marketing & Documentation Website
 
-> **Perceive reality beyond sight.**
-> Next-generation AI vision assistant for the visually impaired. **Currently in Public Beta.**
+Production Next.js (App Router) + TypeScript + Tailwind CSS + Framer Motion website for **Drishya Sahayak V1** (*Visual Assistant*), an open-source (MIT) Python desktop application that combines real-time YOLOv8 object detection and Google Gemini 2.5 Flash to describe scenes, read text, and hold natural voice conversations for the visually impaired community.
 
+## Features
 
-## 📖 Overview
+- **Editorial Pastel Design System**: Warm `#FDFAF7` canvas, sky-blue hero with dithered pixel-grain clouds and torn-paper collage, overlapping Tkinter desktop window preview, alternating pastel feature cards (`SEE`, `READ`, `TALK`, `KNOW`), white/black pricing comparison, and rounded dark footer.
+- **Accessibility First (WCAG 2.2 AA / AAA targets)**:
+  - Skip-to-main-content link, semantic landmarks, proper heading hierarchy, and descriptive alt/ARIA descriptions.
+  - Visible global **Increase text size** (`100%` / `112%` / `125%`), **High contrast**, and **Light / Dark (`#020203`)** toggles persisted in `localStorage`.
+  - Keyboard-navigable voice command simulations with live text transcripts, captions, and explicit opt-in browser TTS (zero autoplay audio).
+  - Full `prefers-reduced-motion` support via `MotionConfig` and CSS media rules.
+- **Routes & API Endpoints**:
+  - `/` — Complete 18-section landing page with lazy-loaded below-the-fold sections.
+  - `/docs` — Documentation covering introduction, prerequisites, installation, quick start, hybrid architecture, and voice commands.
+  - `/privacy` — Honest hybrid data-flow privacy policy explaining on-device vs Google Gemini processing.
+  - `/terms` — MIT License terms and assistive-aid safety notice (explicitly not a replacement for a white cane, guide dog, or human guide).
+  - `POST /api/contact` & `POST /api/waitlist` — Zod-validated handlers with honeypot spam protection and Resend / Formspree support.
 
-**Drishya Sahayak** is an open-source initiative to build affordable, privacy-focused smart glasses. We are currently in **Beta Testing**, actively refining our hardware and software with community feedback.
+## Quick Local Setup
 
-Powered by a Raspberry Pi 5 and custom edge-AI models, it provides real-time audio descriptions of the world, helping users navigate with independence and confidence—without relying on an internet connection.
+```bash
+npm install
+cp .env.example .env.local
+npm run dev
+```
 
-## ✨ Key Features
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-- **🚀 Real-Time Object Detection**: Identify people, obstacles, and vehicles in milliseconds using YOLOv12-Nano.
-- **🔒 100% Private**: All processing happens on-device. No video streams are ever sent to the cloud.
-- **🔋 All-Day Battery**: Optimized power management for 8+ hours of continuous use.
-- **🗣️ Natural Voice Assistant**: Ask questions about your surroundings ("Read this sign", "Is it safe to cross?").
-- **📍 GPS Navigation**: Turn-by-turn haptic and audio guidance.
+## Environment Variables
 
-## 🛠️ Tech Stack
+Configure `.env.local` (locally) or Project Environment Variables in Vercel:
 
-- **Hardware**: Raspberry Pi 5, HQ Camera Module, Bone Conduction Headphones.
-- **AI/ML**: Python, TensorFlow Lite, OpenCV, YOLO.
-- **Web Interface**: HTML5, CSS3, Vanilla JavaScript (No build tools required).
+| Variable | Required | Purpose |
+|---|---|---|
+| `NEXT_PUBLIC_SITE_URL` | Recommended | Canonical base URL for OpenGraph, `sitemap.xml`, and `robots.txt` |
+| `RESEND_API_KEY` | Optional | Enables real email delivery via Resend in `/api/contact` and `/api/waitlist` |
+| `RESEND_FROM_EMAIL` | Optional | Verified sender identity for Resend (defaults to `onboarding@resend.dev`) |
+| `CONTACT_TO_EMAIL` | Optional | Destination inbox (defaults to `drishyasahayak@gmail.com`) |
+| `FORMSPREE_CONTACT_ENDPOINT` | Optional | Alternative Formspree endpoint for contact submissions |
+| `FORMSPREE_WAITLIST_ENDPOINT` | Optional | Alternative Formspree endpoint for Glasses Edition waitlist signups |
 
-## 🚀 Deployment (GitHub Pages)
+> Note: When neither `RESEND_API_KEY` nor a `FORMSPREE_*` URL is configured, `/api/contact` and `/api/waitlist` validate inputs cleanly with Zod, filter honeypot bots, log sanitized summaries in server logs, and return `{ ok: true, mode: 'local-preview' }`.
 
-This website is designed to be static and lightweight, making it perfect for **GitHub Pages**.
+## Editing Content
 
-1.  **Fork/Clone** this repository.
-2.  Go to **Settings** > **Pages** in your GitHub repository.
-3.  Under **Source**, select `Deploy from a branch`.
-4.  Choose your `main` (or `master`) branch and `/root` folder.
-5.  Click **Save**. Your site will be live in minutes!
+All copy, links, voice command demos, install commands, roadmap milestones, FAQs, and documentation summaries live in a single typed file:
 
-## 💻 Local Development
+- [`src/content.ts`](./src/content.ts)
 
-No complex build steps. Just open the file:
+## Verification Commands
 
-1.  Clone the repo:
-    ```bash
-    git clone https://github.com/DhyandevRTX/Blind-Aid.git
-    ```
-2.  Open `index.html` in your browser.
+```bash
+npm run typecheck
+npm run lint
+npm run build
+```
 
-## 🤝 Contributing
+## Deploying to Vercel
 
-We welcome contributions! Please feel free to submit a Pull Request.
+1. Push this directory to a GitHub repository.
+2. Import the repository in [Vercel](https://vercel.com/new).
+3. Add `NEXT_PUBLIC_SITE_URL` and either `RESEND_API_KEY` or Formspree endpoint variables in Vercel Settings.
+4. Deploy — Next.js App Router, API route handlers, `sitemap.xml`, and `robots.txt` work out of the box.
 
-## 📄 License
+## Team & Collaborators
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+- **Dhyandev P** — Lead Developer & Founder ([@dhyandevp](https://github.com/dhyandevp) · [Linktree](https://linktr.ee/DhyandevRTX))
+- **Sreehid** — Project Collaborator
+- **Ashirwad** — Project Collaborator
 
-## 👨‍💻 Developer
-
-**Dhyandev P**
-- [GitHub](https://linktr.ee/DhyandevRTX)
-- [Twitter](https://linktr.ee/DhyandevRTX)
-
----
-*Empowering independence through technology.*
