@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "drishya-sahayak",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-11-26",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "routes": [
+    { "pattern": "drishya-sahayak.dhyandev.sbs", "custom_domain": true }
+  ],
+  "workers_dev": true,
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "NEXT_PUBLIC_SITE_URL": "https://drishya-sahayak.dhyandev.sbs",
+    "RESEND_FROM_EMAIL": "Drishya Sahayak <onboarding@resend.dev>",
+    "CONTACT_TO_EMAIL": "dhyandevp@proton.me"
+  }
+}

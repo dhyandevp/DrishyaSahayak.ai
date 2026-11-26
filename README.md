@@ -56,7 +56,52 @@ npm run lint
 npm run build
 ```
 
-## Deploying to Vercel
+## Deployment (Cloudflare Workers)
+
+This project is deployed to **Cloudflare Workers** using `@opennextjs/cloudflare`.
+
+- **Project Slug**: `drishya-sahayak`
+- **Live URL**: [https://drishya-sahayak.dhyandev.sbs](https://drishya-sahayak.dhyandev.sbs)
+- **Fallback URL**: [https://drishya-sahayak.this-is-testproject.workers.dev](https://drishya-sahayak.this-is-testproject.workers.dev)
+
+### Commands
+
+```bash
+# Start local development server with Cloudflare proxy bindings
+npm run dev
+
+# Build and preview with local Wrangler
+npm run preview
+
+# Build and deploy to Cloudflare Workers & Custom Domain
+npm run deploy
+
+# Regenerate Cloudflare Env types
+npm run cf-typegen
+```
+
+### Environment Variables & Secrets
+
+- **Public variables** (`vars` in `wrangler.jsonc`):
+  - `NEXT_PUBLIC_SITE_URL`: `https://drishya-sahayak.dhyandev.sbs`
+  - `RESEND_FROM_EMAIL`: `Drishya Sahayak <onboarding@resend.dev>`
+  - `CONTACT_TO_EMAIL`: `dhyandevp@proton.me`
+- **Production secrets** (store securely using Wrangler):
+  ```bash
+  npx wrangler secret put RESEND_API_KEY
+  # Optional fallbacks:
+  npx wrangler secret put FORMSPREE_CONTACT_ENDPOINT
+  npx wrangler secret put FORMSPREE_WAITLIST_ENDPOINT
+  ```
+- **Local secrets**: Set values in `.dev.vars` (gitignored; see `.dev.vars.example`).
+
+### Rollback Plan
+
+The previous Vercel deployment remains active and untouched. To roll back at any time:
+1. Remove or disable the Worker custom domain route in `wrangler.jsonc` or Cloudflare Dashboard (**Workers & Pages > drishya-sahayak > Settings > Triggers**).
+2. Point your DNS records back to Vercel (`cname.vercel-dns.com`).
+
+## Deploying to Vercel (Legacy Reference)
 
 1. Push this directory to a GitHub repository.
 2. Import the repository in [Vercel](https://vercel.com/new).
