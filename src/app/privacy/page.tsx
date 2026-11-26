@@ -7,8 +7,23 @@ import { SubpageShell } from '@/components/sections/SubpageShell';
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description:
-    'Honest data handling and privacy policy for Drishya Sahayak V1 desktop app and website.',
+    'Transparent breakdown of on-device processing vs Google Gemini cloud AI for Drishya Sahayak V1.',
   alternates: { canonical: '/privacy' },
+  openGraph: {
+    type: 'article',
+    title: 'Privacy Policy | Drishya Sahayak',
+    description:
+      'Transparent data handling breakdown for Drishya Sahayak V1 on-device detection and Google Gemini cloud AI.',
+    url: '/privacy',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Drishya Sahayak Privacy Policy' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Privacy Policy | Drishya Sahayak',
+    description:
+      'Transparent data handling breakdown for Drishya Sahayak V1 on-device detection and Google Gemini cloud AI.',
+    images: ['/og-image.png'],
+  },
 };
 
 export default function PrivacyPage() {

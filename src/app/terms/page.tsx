@@ -5,10 +5,25 @@ import { LINKS, SITE_META } from '@/content';
 import { SubpageShell } from '@/components/sections/SubpageShell';
 
 export const metadata: Metadata = {
-  title: 'Terms & Safety Notice',
+  title: 'Terms of Use & Safety Notice',
   description:
     'MIT License terms and essential safe-use guidelines for Drishya Sahayak V1 assistive visual software.',
   alternates: { canonical: '/terms' },
+  openGraph: {
+    type: 'article',
+    title: 'Terms of Use & Safety Notice | Drishya Sahayak',
+    description:
+      'MIT License terms and essential safe-use boundaries for Drishya Sahayak V1 assistive visual software.',
+    url: '/terms',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Drishya Sahayak Terms and Safety Notice' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Terms of Use & Safety Notice | Drishya Sahayak',
+    description:
+      'MIT License terms and essential safe-use boundaries for Drishya Sahayak V1 assistive visual software.',
+    images: ['/og-image.png'],
+  },
 };
 
 export default function TermsPage() {

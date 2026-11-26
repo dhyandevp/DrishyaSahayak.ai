@@ -16,10 +16,25 @@ import { SubpageShell } from '@/components/sections/SubpageShell';
 import { CopyButton } from '@/components/ui/MotionPrimitives';
 
 export const metadata: Metadata = {
-  title: 'Documentation',
+  title: 'Documentation & Guide',
   description:
-    'Installation, quick start guide, hybrid architecture, and voice command reference for Drishya Sahayak V1.',
+    'Installation, quick start guide, hybrid YOLOv8 + Gemini 2.5 Flash architecture, and voice command reference for Drishya Sahayak V1.',
   alternates: { canonical: '/docs' },
+  openGraph: {
+    type: 'article',
+    title: 'Documentation & User Guide | Drishya Sahayak',
+    description:
+      'Installation guide, quick start, hybrid architecture, and voice command reference for Drishya Sahayak V1.',
+    url: '/docs',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Drishya Sahayak Documentation' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Documentation & User Guide | Drishya Sahayak',
+    description:
+      'Installation guide, quick start, hybrid architecture, and voice command reference for Drishya Sahayak V1.',
+    images: ['/og-image.png'],
+  },
 };
 
 const DOC_SECTIONS = [
