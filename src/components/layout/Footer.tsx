@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Globe, Mail } from 'lucide-react';
+import { Globe, Link2, Mail } from 'lucide-react';
 import { FOOTER_COLUMNS, LINKS, SITE_META } from '@/content';
 import { BrandLogo } from '@/components/ui/BrandLogo';
 import { GitHubIcon, YouTubeIcon } from '@/components/ui/SocialIcons';
@@ -20,7 +20,13 @@ export function Footer() {
       external: true,
     },
     {
-      label: 'Developer website (links.dhyandev.sbs)',
+      label: 'Developer links (links.dhyandev.sbs)',
+      href: LINKS.linktree,
+      icon: Link2,
+      external: true,
+    },
+    {
+      label: 'Developer website (dhyandev.sbs)',
       href: LINKS.website,
       icon: Globe,
       external: true,

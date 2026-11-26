@@ -9,7 +9,7 @@ import {
   useScroll,
   useTransform,
 } from 'framer-motion';
-import { ArrowUpRight, Globe, Mail } from 'lucide-react';
+import { ArrowUpRight, Globe, Link2, Mail } from 'lucide-react';
 import { COMMUNITY_CARDS, CommunityCard } from '@/content';
 import { Reveal } from '@/components/ui/MotionPrimitives';
 import { GitHubIcon, YouTubeIcon } from '@/components/ui/SocialIcons';
@@ -24,7 +24,7 @@ const TILE_TONES: Record<CommunityCard['tone'], string> = {
 const TILE_ICONS = {
   github: GitHubIcon,
   youtube: YouTubeIcon,
-  linktree: Globe,
+  linktree: Link2,
   email: Mail,
 } as const;
 

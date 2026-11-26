@@ -96,7 +96,7 @@ export const LINKS = {
   demoFilm: 'https://youtu.be/7CZvz8eTNHY',
   geminiApiKey: 'https://aistudio.google.com/app/apikey',
   linktree: 'https://links.dhyandev.sbs',
-  website: 'https://links.dhyandev.sbs',
+  website: 'https://dhyandev.sbs',
   creatorGithub: 'https://github.com/dhyandevp',
   email: 'dhyandevp@proton.me',
   address: 'Drishya Sahayak, India',
@@ -573,7 +573,7 @@ export const COMMUNITY_CARDS: readonly CommunityCard[] = [
   },
   {
     id: 'linktree',
-    title: 'Creator Links',
+    title: 'Developer Links',
     handle: 'links.dhyandev.sbs',
     description: 'Follow project updates, open-source releases, and engineering notes from the founder.',
     ctaLabel: 'Visit links',
@@ -684,7 +684,8 @@ export const FOOTER_COLUMNS = [
     links: [
       { label: 'GitHub Repository', href: LINKS.github, external: true },
       { label: 'Demo Film (YouTube)', href: LINKS.demoFilm, external: true },
-      { label: 'Developer Website (links.dhyandev.sbs)', href: LINKS.website, external: true },
+      { label: 'Developer Website (dhyandev.sbs)', href: LINKS.website, external: true },
+      { label: 'Developer Links (links.dhyandev.sbs)', href: LINKS.linktree, external: true },
       { label: 'Dhyandev P on GitHub', href: LINKS.creatorGithub, external: true },
     ],
   },

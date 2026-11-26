@@ -48,7 +48,7 @@ export function ContactSection() {
                     href={LINKS.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="Visit developer website links.dhyandev.sbs (opens in a new tab)"
+                    aria-label="Visit developer website dhyandev.sbs (opens in a new tab)"
                     className="inline-flex min-h-[42px] items-center gap-2 rounded-full border border-[var(--border-strong)] bg-[var(--surface-card-inner)] px-4 py-2 text-xs font-semibold text-[var(--fg-primary)] shadow-sm transition-transform hover:-translate-y-0.5 sm:text-sm"
                   >
                     <Globe className="h-4 w-4" aria-hidden="true" />
@@ -94,7 +94,7 @@ export function ContactSection() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 underline-offset-4 hover:underline"
                     >
-                      <span>links.dhyandev.sbs</span>
+                      <span>dhyandev.sbs</span>
                       <ExternalLink className="h-3 w-3" aria-hidden="true" />
                     </a>
                   </dd>

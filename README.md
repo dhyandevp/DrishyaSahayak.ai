@@ -65,7 +65,7 @@ npm run build
 
 ## Team & Collaborators
 
-- **Dhyandev P** — Lead Developer & Founder ([@dhyandevp](https://github.com/dhyandevp) · [Linktree](https://linktr.ee/DhyandevRTX))
+- **Dhyandev P** — Lead Developer & Founder ([@dhyandevp](https://github.com/dhyandevp) · [Website](https://dhyandev.sbs) · [Links](https://links.dhyandev.sbs))
 - **Sreehid** — Project Collaborator
 - **Ashirwad** — Project Collaborator
 
