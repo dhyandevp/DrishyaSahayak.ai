@@ -86,6 +86,76 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
   scroll-padding-top: 6rem;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Dynamic & Small Viewport Height fixes for mobile URL bar collapse/expansion */
+.min-h-screen {
+  min-height: 100svh;
+}
+@supports (min-height: 100dvh) {
+  .min-h-screen {
+    min-height: 100dvh;
+  }
+}
+
+/* Prevent iOS Safari auto-zoom on inputs (minimum 16px font size) */
+input,
+textarea,
+select {
+  font-size: 16px;
+}
+@media (pointer: coarse) {
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
+
+/* Eliminate 300ms click delay & double-tap zoom wait on all interactive elements */
+button,
+a,
+[role="button"],
+input,
+select,
+textarea,
+.tappable {
+  touch-action: manipulation;
+}
+
+/* Prevent accidental text selection and callouts when long-pressing controls */
+button,
+[role="button"],
+.tab,
+.chip,
+.drag-handle {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Isolate horizontal code blocks & tabs so horizontal swipes don't jerk vertical page scroll */
+pre,
+.overflow-x-auto,
+[role="tablist"] {
+  touch-action: pan-y;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Dialog & sheet overscroll containment: stop pull-to-refresh & rubber band from dragging body */
+[role="dialog"],
+.overscroll-contain {
+  overscroll-behavior: contain;
+}
+
+/* Immediate tactile active press feedback on button controls (skipping motion elements) */
+button:not([style*="transform"]):active:not(:disabled),
+[role="button"]:not([style*="transform"]):active:not([aria-disabled="true"]) {
+  transform: scale(0.97);
+  transition: transform 100ms ease-out;
 }
 
 html[data-text-scale="large"] {

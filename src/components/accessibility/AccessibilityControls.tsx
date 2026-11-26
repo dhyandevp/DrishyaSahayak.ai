@@ -23,7 +23,7 @@ export function AccessibilityControls({ compact = false }: { compact?: boolean }
         type="button"
         onClick={cycleTextScale}
         aria-label={`Increase text size. Current size: ${scaleLabel}. Activate to cycle sizes.`}
-        className="inline-flex min-h-[30px] items-center gap-1.5 whitespace-nowrap rounded-full px-2.5 py-1 transition-colors hover:bg-[var(--bg-muted)]"
+        className="inline-flex min-h-[36px] items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-1.5 transition-colors hover:bg-[var(--bg-muted)]"
       >
         <Type className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
         <span>Text size</span>
@@ -39,7 +39,7 @@ export function AccessibilityControls({ compact = false }: { compact?: boolean }
         onClick={toggleHighContrast}
         aria-pressed={highContrast}
         aria-label="Toggle high contrast mode"
-        className={`inline-flex min-h-[30px] items-center gap-1.5 whitespace-nowrap rounded-full px-2.5 py-1 transition-colors ${
+        className={`inline-flex min-h-[36px] items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-1.5 transition-colors ${
           highContrast
             ? 'bg-[var(--cta-primary-bg)] text-[var(--cta-primary-fg)] font-semibold'
             : 'hover:bg-[var(--bg-muted)] text-[var(--fg-secondary)]'

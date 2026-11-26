@@ -30,7 +30,13 @@ const jetbrainsMono = JetBrains_Mono({
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#FDFAF7',
+  viewportFit: 'cover',
+  interactiveWidget: 'resizes-content',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#FDFAF7' },
+    { media: '(prefers-color-scheme: dark)', color: '#08080a' },
+  ],
+  colorScheme: 'light dark',
 };
 
 export const metadata: Metadata = {
@@ -52,6 +58,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Dhyandev P', url: LINKS.website }],
   creator: 'Dhyandev P',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'Drishya Sahayak',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_IN',

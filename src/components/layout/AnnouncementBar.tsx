@@ -10,7 +10,7 @@ export function AnnouncementBar() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <div className="mx-auto w-full max-w-[1260px] px-3 pt-3 pb-1.5 sm:px-6">
+    <div className="mx-auto w-full max-w-[1260px] px-3 pt-[calc(0.75rem+env(safe-area-inset-top,0px))] pb-1.5 sm:px-6">
       <div className="flex flex-col items-center justify-between gap-2.5 sm:flex-row sm:items-center">
         {/* Left: Star on GitHub Announcement pill */}
         <a

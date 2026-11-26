@@ -34,7 +34,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="mx-auto w-full max-w-[1380px] px-3 pt-8 pb-6 sm:px-6 sm:pb-10">
+    <footer className="mx-auto w-full max-w-[1380px] px-3 pt-8 pb-[calc(1.5rem+env(safe-area-inset-bottom,0px))] sm:px-6 sm:pb-10">
       <div className="paper-grain overflow-hidden rounded-[28px] border border-white/10 bg-[var(--surface-dark)] px-6 py-12 text-[var(--surface-dark-fg)] sm:px-10 sm:py-16 lg:px-14">
         {/* Top Wordmark Row */}
         <div className="mb-10 flex flex-col justify-between gap-4 border-b border-white/15 pb-8 sm:flex-row sm:items-center">

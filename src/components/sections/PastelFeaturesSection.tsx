@@ -726,7 +726,7 @@ export function PastelFeaturesSection() {
                     idx === PASTEL_FEATURES.length - 1
                       ? STACK_CONFIG.tailSpacerVh
                       : STACK_CONFIG.slotSpacerVh
-                  }vh`,
+                  }svh`,
                 }}
               />
             )}

@@ -29,11 +29,11 @@ export function WatchFilmModal({
       role="dialog"
       aria-modal="true"
       aria-labelledby="watch-film-title"
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm overscroll-contain touch-pan-y pt-[calc(1rem+env(safe-area-inset-top,0px))] pb-[calc(1rem+env(safe-area-inset-bottom,0px))]"
       onClick={onClose}
     >
       <div
-        className="w-full max-w-3xl overflow-hidden rounded-[28px] border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--fg-primary)] shadow-2xl"
+        className="w-full max-w-3xl max-h-[calc(100dvh-2rem)] overflow-y-auto overscroll-contain rounded-[28px] border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--fg-primary)] shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between border-b border-[var(--border-subtle)] px-6 py-4">
@@ -47,7 +47,7 @@ export function WatchFilmModal({
             type="button"
             onClick={onClose}
             aria-label="Close demo film dialog"
-            className="inline-flex min-h-[40px] min-w-[40px] items-center justify-center rounded-full border border-[var(--border-subtle)] bg-[var(--bg-muted)] text-[var(--fg-primary)] transition-colors hover:bg-[var(--border-subtle)]"
+            className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-[var(--border-subtle)] bg-[var(--bg-muted)] text-[var(--fg-primary)] transition-colors hover:bg-[var(--border-subtle)]"
           >
             <X className="h-5 w-5" aria-hidden="true" />
           </button>
@@ -76,7 +76,7 @@ export function WatchFilmModal({
               href={LINKS.demoFilm}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-[40px] items-center gap-2 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-4 py-2 text-sm font-semibold text-[var(--fg-primary)] hover:bg-[var(--bg-muted)]"
+              className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-4 py-2 text-sm font-semibold text-[var(--fg-primary)] hover:bg-[var(--bg-muted)]"
             >
               <span>Open directly on YouTube</span>
               <ExternalLink className="h-4 w-4" aria-hidden="true" />
@@ -84,7 +84,7 @@ export function WatchFilmModal({
             <button
               type="button"
               onClick={onClose}
-              className="inline-flex min-h-[40px] items-center justify-center rounded-full bg-[var(--cta-primary-bg)] px-5 py-2 text-sm font-semibold text-[var(--cta-primary-fg)] hover:bg-[var(--cta-primary-hover)]"
+              className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-[var(--cta-primary-bg)] px-5 py-2 text-sm font-semibold text-[var(--cta-primary-fg)] hover:bg-[var(--cta-primary-hover)]"
             >
               Done
             </button>

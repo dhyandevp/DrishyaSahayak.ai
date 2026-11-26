@@ -325,7 +325,7 @@ export function HowItWorksSection() {
       id="how-it-works"
       aria-labelledby="how-it-works-heading"
       style={
-        prefersReducedMotion ? undefined : { minHeight: `${scrollHeightVh}vh` }
+        prefersReducedMotion ? undefined : { minHeight: `${scrollHeightVh}svh` }
       }
       className="relative z-10 mx-auto w-full max-w-[1220px] px-3 py-14 sm:px-6 sm:py-20"
     >
