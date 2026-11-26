@@ -60,8 +60,8 @@ npm run build
 
 This project is deployed to **Cloudflare Workers** using `@opennextjs/cloudflare`.
 
-- **Project Slug**: `drishya-sahayak`
-- **Live URL**: [https://drishya-sahayak.dhyandev.sbs](https://drishya-sahayak.dhyandev.sbs)
+- **Project Slug**: `drishyasahayakai`
+- **Live URL**: [https://drishyasahayakai.dhyandev.sbs](https://drishyasahayakai.dhyandev.sbs)
 - **Fallback URL**: [https://drishya-sahayak.this-is-testproject.workers.dev](https://drishya-sahayak.this-is-testproject.workers.dev)
 
 ### Commands
@@ -83,7 +83,7 @@ npm run cf-typegen
 ### Environment Variables & Secrets
 
 - **Public variables** (`vars` in `wrangler.jsonc`):
-  - `NEXT_PUBLIC_SITE_URL`: `https://drishya-sahayak.dhyandev.sbs`
+  - `NEXT_PUBLIC_SITE_URL`: `https://drishyasahayakai.dhyandev.sbs`
   - `RESEND_FROM_EMAIL`: `Drishya Sahayak <onboarding@resend.dev>`
   - `CONTACT_TO_EMAIL`: `dhyandevp@proton.me`
 - **Production secrets** (store securely using Wrangler):

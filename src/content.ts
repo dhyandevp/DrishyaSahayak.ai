@@ -83,7 +83,7 @@ export const SITE_META = {
   title: 'Drishya Sahayak | AI Vision Assistant',
   description:
     'Free, open-source (MIT) Python desktop app combining real-time YOLOv8 object detection and Google Gemini 2.5 Flash to describe scenes, read text, and hold natural voice conversations.',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://drishya-sahayak.dhyandev.sbs',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://drishyasahayakai.dhyandev.sbs',
   license: 'MIT',
   copyright: '© 2026 Drishya Sahayak.',
   creatorCredit: 'Designed & engineered by Dhyandev P with collaborators Sreehid and Ashirwad',
